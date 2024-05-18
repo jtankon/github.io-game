@@ -1,1 +1,1 @@
-# mwuweb.github.io-game
+# github.io-game
