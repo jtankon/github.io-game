@@ -8,7 +8,8 @@ PetiteVue.createApp({
   rest: 10,
   score: 0,
   showKago: false,
-  finish:"",
+  finish: "",
+  fallInterval: null,
 
   left() {
     this.positionX -= 100;
@@ -30,12 +31,16 @@ PetiteVue.createApp({
     this.appY = 70;
     this.fall = true;
     this.showKago = true;
-    this.gameFinished = false; 
+    this.finish = "";
+
+    if (this.fallInterval) {
+      clearInterval(this.fallInterval);
+    }
   
-    const fallInterval = setInterval(() => {
+    this.fallInterval = setInterval(() => {
       if (this.judg()) {
         this.score += 100;
-        clearInterval(fallInterval);
+        clearInterval(this.fallInterval);
         this.fall = false;
         this.rest--;
         if (this.rest > 0) {
@@ -44,7 +49,7 @@ PetiteVue.createApp({
           this.finish = "Finish";
         }
       } else if (this.appY >= 500) {
-        clearInterval(fallInterval);
+        clearInterval(this.fallInterval);
         this.fall = false;
         this.rest--;
         if (this.rest > 0) {
@@ -66,20 +71,25 @@ PetiteVue.createApp({
   
     return (
       appleRect.top < kgRect.bottom &&
-      appleRect.bottom-50 > kgRect.top &&
+      appleRect.bottom - 50 > kgRect.top &&
       appleRect.left < kgRect.right &&
       appleRect.right > kgRect.left
     );
   },
   
   reset() {
-  this.positionX= 0;
-  this.fall=false;
-  this.appX= 0;
-  this.appY=0;
-  this.rest=10;
-  this.score= 0;
-  this.finish="";
-  this.showKago=false;
+    this.positionX = 0;
+    this.fall = false;
+    this.appX = 0;
+    this.appY = 0;
+    this.rest = 10;
+    this.score = 0;
+    this.finish = "";
+    this.showKago = false;
+    if (this.fallInterval) {
+      clearInterval(this.fallInterval);
+      this.fallInterval = null;
+    }
   }
 }).mount();
+
