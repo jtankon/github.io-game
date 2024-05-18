@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    [v-cloak] { display: none; }
+  </style>
+  <title>リンゴキャッチ</title>
+</head>
+<body v-cloak>
+  <canvas width="600" height="550"></canvas>
+
+  <div v-if="showKago && !finish" id="kg">
+    <img src="img/kago.png" width="95" height="105">
+  </div>
+
+  <div id="fallApple" v-if="fall" :style="{ left: appX + 'px', top: appY + 'px' }">
+    <img src="img/apple.png" width="55" height="55">
+  </div>
+
+  <button id="start" @click="start">Start</button>
+  <button id="reset" @click="reset">Reset</button>
+  <div id ="btn">
+    <button id ="left" v-if="positionX > -200" v-on:click="left">←</button>
+    <button id="right" v-if="positionX < 200" v-on:click="right">→</button>
+  </div>
+  <p id="score">score:{{score}}</p><br>
+  <p id ="finish">{{finish}}</p>
+
+  <script src="https://unpkg.com/petite-vue"></script>
+  <script src="script.js"></script>
+</body>
+</html>
