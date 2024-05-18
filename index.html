@@ -13,11 +13,11 @@
   <canvas width="600" height="550"></canvas>
 
   <div v-if="showKago && !finish" id="kg">
-    <img src="img/kago.png" width="95" height="105">
+    <img src="kago.png" width="95" height="105">
   </div>
 
   <div id="fallApple" v-if="fall" :style="{ left: appX + 'px', top: appY + 'px' }">
-    <img src="img/apple.png" width="55" height="55">
+    <img src="apple.png" width="55" height="55">
   </div>
 
   <button id="start" @click="start">Start</button>
