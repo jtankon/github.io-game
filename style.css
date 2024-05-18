@@ -1,0 +1,63 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+canvas {
+  position: absolute;
+  border: 1px solid #ffffff;
+  top: 50px;
+}
+
+p#score{
+  color: white;
+  position: absolute;
+  font-size: 35px;
+  top: 600px;
+  left: 850px;
+}
+
+p#finish{
+  color: white;
+  position: absolute;
+  font-size: 45px;
+  top: 250px;
+}
+
+div#kg {
+  position: relative;
+  top: 490px;
+}
+
+button#start {
+  position: absolute;
+  top: 650px;
+  left: 440px;
+  font-size: 35px;
+}
+button#reset {
+  position: absolute;
+  top: 700px;
+  left: 440px;
+  font-size: 35px;
+}
+
+div#fallApple {
+  position: absolute;
+}
+
+button#left{
+  position: absolute;
+  top: 650px;
+  left: 650px;
+  font-size: 35px;
+}
+
+button#right{
+  position: absolute;
+  top: 650px;
+  left: 710px;
+  font-size: 35px;
+}
